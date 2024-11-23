@@ -8,7 +8,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_menu);
+        setContentView(R.layout.fragment_main_menu);
         loadFragment(new OptionFragment());
     }
     public void loadFragment(Fragment fragment) {
