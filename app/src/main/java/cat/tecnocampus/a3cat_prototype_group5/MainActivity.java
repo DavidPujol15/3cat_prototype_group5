@@ -9,11 +9,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main_menu);
-        loadFragment(new OptionFragment());
+        loadFragment(new MainMenuFragment());
+
     }
+
     public void loadFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();
     }
+
+
 }

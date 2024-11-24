@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 public class MainMenuFragment extends Fragment {
 
@@ -21,12 +20,14 @@ public class MainMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.btn_start_game).setOnClickListener(v ->
-                Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_gameMenuFragment)
-        );
+        view.findViewById(R.id.btn_option).setOnClickListener(v -> {
+            Fragment gameMenuFragment = new GameMenuFragment();
+            ((MainActivity) getActivity()).loadFragment(gameMenuFragment);
+        });
 
-        view.findViewById(R.id.btn_raffle).setOnClickListener(v ->
-                Navigation.findNavController(v).navigate(R.id.action_mainMenuFragment_to_raffleFragment)
-        );
+        view.findViewById(R.id.btn_raffle).setOnClickListener(v -> {
+            Fragment raffleFragment = new RaffleFragment();
+            ((MainActivity) getActivity()).loadFragment(raffleFragment);
+        });
     }
 }
