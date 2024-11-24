@@ -25,7 +25,7 @@ public class MainMenuFragment extends Fragment {
             ((MainActivity) getActivity()).loadFragment(gameMenuFragment);
         });
 
-        view.findViewById(R.id.btn_raffle).setOnClickListener(v -> {
+        view.findViewById(R.id.btn_back).setOnClickListener(v -> {
             Fragment raffleFragment = new RaffleFragment();
             ((MainActivity) getActivity()).loadFragment(raffleFragment);
         });

@@ -1,4 +1,6 @@
 package cat.tecnocampus.a3cat_prototype_group5;
 
-public class RaffleFragment {
+import androidx.fragment.app.Fragment;
+
+public class RaffleFragment extends Fragment {
 }

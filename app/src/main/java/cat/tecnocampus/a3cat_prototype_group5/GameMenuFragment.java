@@ -1,4 +1,6 @@
 package cat.tecnocampus.a3cat_prototype_group5;
 
-public class GameMenuFragment {
+import androidx.fragment.app.Fragment;
+
+public class GameMenuFragment extends Fragment {
 }
