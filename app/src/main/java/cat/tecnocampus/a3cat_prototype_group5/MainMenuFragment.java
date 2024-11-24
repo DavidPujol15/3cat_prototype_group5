@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,14 +22,13 @@ public class MainMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.btn_option).setOnClickListener(v -> {
-            Fragment gameMenuFragment = new GameMenuFragment();
-            ((MainActivity) getActivity()).loadFragment(gameMenuFragment);
-        });
+        Button optionButton = view.findViewById(R.id.btn_option);
 
-        view.findViewById(R.id.btn_back).setOnClickListener(v -> {
-            Fragment raffleFragment = new RaffleFragment();
-            ((MainActivity) getActivity()).loadFragment(raffleFragment);
+        optionButton.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new GameMenuFragment())
+                .addToBackStack(null)
+                .commit();
         });
     }
 }
