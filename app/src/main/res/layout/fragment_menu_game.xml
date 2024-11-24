@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_image"
+    tools:context=".MainMenuFragment">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_eva"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo_eva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <TextView
+        android:id="@+id/icon_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:textSize="75sp"
+        android:textColor="@color/EVA_primary_variant"
+        android:fontFamily="@font/reenie_beanie"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/logo_eva"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo_fcb"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo_fcb"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/icon_x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="120dp"
+        app:layout_constraintTop_toBottomOf="@id/logo_fcb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_enter_raffle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Raffle"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
