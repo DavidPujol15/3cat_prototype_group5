@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,16 @@ public class RaffleFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.high_scores_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        Button raffleButton = view.findViewById(R.id.btn_inscription);
+        Button backButton = view.findViewById(R.id.btn_back);
+
+        raffleButton.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new RaffleInscriptionFragment())
+                .addToBackStack(null)
+                .commit();
+        });
+
         players = new ArrayList<>();
         adapter = new HighScoresAdapter(players);
         recyclerView.setAdapter(adapter);
@@ -38,6 +49,8 @@ public class RaffleFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         loadHighScores();
+
+
 
         return view;
     }

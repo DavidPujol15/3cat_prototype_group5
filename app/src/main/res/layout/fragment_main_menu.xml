@@ -8,6 +8,15 @@
     android:background="@drawable/background_image"
     tools:context=".MainMenuFragment">
 
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_back_arrow"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp" />
 
    <ImageView
     android:id="@+id/logo_eva"
@@ -17,13 +26,13 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:layout_marginTop="64dp" />
+    android:layout_marginTop="50dp" />
 
     <TextView
         android:id="@+id/icon_x"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="X"
+        android:text=" X "
         android:textSize="75sp"
         android:textColor="@color/EVA_primary_variant"
         android:fontFamily="@font/reenie_beanie"

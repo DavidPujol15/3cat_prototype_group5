@@ -18,6 +18,7 @@ public class GameMenuFragment extends Fragment {
 
         Button playButton = view.findViewById(R.id.btn_play);
         Button raffleButton = view.findViewById(R.id.btn_enter_raffle);
+        Button backButton = view.findViewById(R.id.btn_back);
 
         playButton.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
