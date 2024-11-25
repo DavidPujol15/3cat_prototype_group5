@@ -1,4 +1,4 @@
-package cat.tecnocampus.a3cat_prototype_group5;
+package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
 import androidx.fragment.app.Fragment;
 

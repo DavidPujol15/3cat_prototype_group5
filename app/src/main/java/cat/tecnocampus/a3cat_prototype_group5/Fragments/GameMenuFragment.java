@@ -1,4 +1,4 @@
-package cat.tecnocampus.a3cat_prototype_group5;
+package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import cat.tecnocampus.a3cat_prototype_group5.R;
 
 public class GameMenuFragment extends Fragment {
 
@@ -30,6 +32,13 @@ public class GameMenuFragment extends Fragment {
         raffleButton.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new RaffleFragment())
+                .addToBackStack(null)
+                .commit();
+        });
+
+        backButton.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new MainMenuFragment())
                 .addToBackStack(null)
                 .commit();
         });

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background_image"
-    tools:context=".RaffleFragment">
+    tools:context=".Fragments.RaffleFragment">
 
     <ImageButton
         android:id="@+id/btn_back"

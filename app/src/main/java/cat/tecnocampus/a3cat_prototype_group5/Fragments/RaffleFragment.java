@@ -1,4 +1,4 @@
-package cat.tecnocampus.a3cat_prototype_group5;
+package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
+
+import cat.tecnocampus.a3cat_prototype_group5.R;
 import cat.tecnocampus.a3cat_prototype_group5.Ranking.HighScoresAdapter;
 import cat.tecnocampus.a3cat_prototype_group5.Ranking.Player;
 
@@ -38,6 +40,13 @@ public class RaffleFragment extends Fragment {
         raffleButton.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, new RaffleInscriptionFragment())
+                .addToBackStack(null)
+                .commit();
+        });
+
+        backButton.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new MainMenuFragment())
                 .addToBackStack(null)
                 .commit();
         });

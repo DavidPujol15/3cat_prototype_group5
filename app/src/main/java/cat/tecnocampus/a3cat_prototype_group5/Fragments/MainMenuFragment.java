@@ -1,4 +1,4 @@
-package cat.tecnocampus.a3cat_prototype_group5;
+package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import cat.tecnocampus.a3cat_prototype_group5.R;
 
 public class MainMenuFragment extends Fragment {
 
