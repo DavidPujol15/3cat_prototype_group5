@@ -8,23 +8,16 @@
     android:background="@drawable/background_image"
     tools:context=".MainMenuFragment">
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/logo_eva"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/logo_eva"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="64dp" />
+   <ImageView
+    android:id="@+id/logo_eva"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:src="@drawable/logo_eva"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="64dp" />
 
     <TextView
         android:id="@+id/icon_x"
@@ -44,7 +37,6 @@
         android:id="@+id/btn_option"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:rad
         android:text="Futbol Club Barcelona"
         android:textColor="@android:color/white"
         android:background="@drawable/rounded_button"

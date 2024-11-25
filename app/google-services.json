@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "910326736944",
+    "project_id": "evax3cat-prototype",
+    "storage_bucket": "evax3cat-prototype.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910326736944:android:67b704cc6d59d3dc0d65f5",
+        "android_client_info": {
+          "package_name": "cat.tecnocampus.3cat_prototype_group5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYeN0NrLmvQezSS3pdRJ168kS02Las9So"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
