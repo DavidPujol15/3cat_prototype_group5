@@ -59,8 +59,6 @@ public class RaffleFragment extends Fragment {
 
         loadHighScores();
 
-
-
         return view;
     }
 

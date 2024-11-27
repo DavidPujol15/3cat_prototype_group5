@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">3cat_prototype_group5</string>
+    <string name="thank_you_message">Gràcies per participar en el sorteig!</string>
+    <string name="fill_fields">Omple els següents camps per continuar amb el sorteig:</string>
+    <string name="name_hint">Nom i cognoms</string>
+    <string name="email_hint">Correu electrònic</string>
+    <string name="birth_date_hint">Data de naixement</string>
+    <string name="raffle_confirmation">Confirmació del sorteig</string>
+    <string name="raffle_inscription">Inscriure\'s</string>
+    <string name="raffle_inscription_button">Participa al sorteig</string>
+    <string name="go_back">Tornar</string>
+    <string name="raffle_confirmation_button">Tornar a la pàgina principal</string>
+    <string name="share_icon">comparteix</string>
+    <string name="raffle_description">El Futbol Club Barcelona et porta una oportunitat única: participa al sorteig i guanya entrades dobles per l\'esperada inauguració del Nou Camp Nou!  Sigues un dels primers a trepitjar el nou estadi,
+        viure l'ambient i gaudir d'una experiència històrica. No et perdis aquesta oportunitat de sentir els colors blaugrana com mai abans!</string>
+    <string name="raffle_legal_text">En participar en aquest sorteig, accepteu el tractament de les vostres dades personals segons la normativa vigent. Heu de ser majors de 18 anys i només es permet una entrada per persona. Confirmant la vostra participació, accepteu les condicions del sorteig i la nostra Política de Privacitat.</string>
+    <string name="promotion_tb">Vull rebre informació sobre promocions, sortejos i esdeveniments futurs relacionats</string>
+    <string name="fcb_name">Futbol Club Barcelona</string>
+    <string name="play">Jugar</string>
+    <string name="start">inici</string>
 </resources>
