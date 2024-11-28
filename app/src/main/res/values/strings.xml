@@ -19,6 +19,8 @@
     <string name="play">Jugar</string>
     <string name="start">inici</string>
     <string name="game_image_description">Click per jugar</string>
-    <string name="current_score">Puntuació Actual:</string>
+    <string name="score">Puntuació Actual:</string>
     <string name="record_score">Rècord:</string>
+    <string name="string_new_record_message">Felicitats!! \nHas superat la teva millor marca!!</string>
+    <string name="string_game_over_message">Bon Intent!!\\n Proba sort una altre vegada!</string>
 </resources>
