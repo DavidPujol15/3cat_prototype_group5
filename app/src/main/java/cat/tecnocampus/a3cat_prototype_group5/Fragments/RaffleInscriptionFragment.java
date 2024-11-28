@@ -76,7 +76,6 @@ public class RaffleInscriptionFragment extends Fragment {
             return;
         }
 
-        // Create a new player with name, surname, email, and score
         Map<String, Object> player = new HashMap<>();
         player.put("name", name);
         player.put("surname", surname);
