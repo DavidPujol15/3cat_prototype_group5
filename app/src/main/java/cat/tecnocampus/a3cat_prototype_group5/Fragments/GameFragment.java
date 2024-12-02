@@ -57,7 +57,7 @@ public class GameFragment extends Fragment {
 
     private void handleGameCanvasClick() {
         Random random = new Random();
-        int newScore = random.nextInt(46) + 10; // Generate random score between 10 and 55
+        int newScore = random.nextInt(46) + 10; //Genera números aleatoris entre 10 i 55
         currentScore.setText(String.valueOf(newScore));
 
         if (newScore > recordScore) {
