@@ -6,27 +6,26 @@
     <string name="email_hint">Correu electrònic</string>
     <string name="birth_date_hint">Data de naixement</string>
     <string name="raffle_confirmation">Confirmació del sorteig</string>
-    <string name="raffle_inscription">Inscriure\'s</string>
+    <string name="raffle_inscription">Inscripció</string>
     <string name="raffle_inscription_button">Participa al sorteig</string>
     <string name="go_back">Tornar</string>
     <string name="raffle_confirmation_button">Tornar a la pàgina principal</string>
     <string name="share_icon">comparteix</string>
-    <string name="raffle_description">El Futbol Club Barcelona et porta una oportunitat única: participa al sorteig i guanya entrades dobles per l\'esperada inauguració del Nou Camp Nou!  Sigues un dels primers a trepitjar el nou estadi,
-        viure l'ambient i gaudir d'una experiència històrica. No et perdis aquesta oportunitat de sentir els colors blaugrana com mai abans!</string>
+    <string name="raffle_description">El Futbol Club Barcelona et porta una oportunitat única: participa al sorteig i guanya entrades dobles per inaugurar del Nou Camp Nou! Sigues un dels primers a trepitjar el nou estadi, viure i gaudir una experiència històrica. No et perdis aquesta oportunitat de sentir els colors blaugrana com mai abans!</string>
     <string name="raffle_legal_text">En participar en aquest sorteig, accepteu el tractament de les vostres dades personals segons la normativa vigent. Heu de ser majors de 18 anys i només es permet una entrada per persona. Confirmant la vostra participació, accepteu les condicions del sorteig i la nostra Política de Privacitat.</string>
     <string name="promotion_tb">Vull rebre informació sobre promocions, sortejos i esdeveniments futurs relacionats</string>
-    <string name="fcb_name">Futbol Club Barcelona</string>
+    <string name="fcb_name">Fútbol Club Barcelona</string>
     <string name="play">Jugar</string>
     <string name="start">inici</string>
     <string name="game_image_description">Click per jugar</string>
     <string name="score">Puntuació Actual:</string>
     <string name="record_score">Rècord:</string>
-    <string name="string_new_record_message">Felicitats!! \nHas superat la teva millor marca!!</string>
-    <string name="string_game_over_message">Bon Intent!!\\n Proba sort una altre vegada!</string>
-    <string name="sharing_message">Ja formes part del sorteig!\n  Comparteix la teva puntuació amb els teus amics a les xarxes socials i multiplica les teves opcions de guanyar!\n\n👉 #JaEsticDins</string>
+    <string name="string_new_record_message">Felicitats!!\nHas superat la teva millor marca!!</string>
+    <string name="string_game_over_message">Bon Intent!!\nProva sort una altra vegada!</string>
+    <string name="sharing_message">Ja formes part del sorteig!\nComparteix la teva puntuació amb els teus amics a les xarxes socials i multiplica les teves opcions de guanyar!</string>
     <string name="instagram_icon">Instagram</string>
     <string name="whatsapp_icon">Whatsapp</string>
     <string name="tiktok_icon">Tiktok</string>
     <string name="x_icon">X</string>
-    <string name="social_media_message">🎉 Participa al sorteig EVA x FCB! 🎉\n🏟 Guanya entrades dobles per viure l\'esdeveniment inaugural al Nou Camp Nou!\n👉 Només has de participar i demostrar la teva puntuació!\n\n💜 Participa aquí: https://play.google.com/store/apps/details?id=cat.tv3.eng.tresac\n🍀 Molta sort!</string>
+    <string name="social_media_message">Participa al sorteig EVA x FCB!\nGuanya entrades dobles per viure el gran esdeveniment inaugural al Nou Camp Nou! \nNomés cal que participis i mostris la teva puntuació.\n\nParticipa aquí: https://play.google.com/store/apps/details?id=cat.tv3.eng.tresac \nMolta sort!</string>
 </resources>
