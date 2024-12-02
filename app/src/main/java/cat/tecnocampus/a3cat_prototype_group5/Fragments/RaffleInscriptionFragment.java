@@ -38,7 +38,6 @@ public class RaffleInscriptionFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_raffle_inscription, container, false);
 
-        // Initialize UI components
         nameEditText = view.findViewById(R.id.et_name);
         surnameEditText = view.findViewById(R.id.et_surname);
         emailEditText = view.findViewById(R.id.et_email);
@@ -67,33 +66,8 @@ public class RaffleInscriptionFragment extends Fragment {
         String email = emailEditText.getText().toString();
         String birthDate = birthDateEditText.getText().toString();
 
-        boolean isValid = true;
 
-        if (!isValidName(name)) {
-            nameErrorTextView.setText("Please enter a valid name");
-            nameErrorTextView.setVisibility(View.VISIBLE);
-            isValid = false;
-        } else {
-            nameErrorTextView.setVisibility(View.GONE);
-        }
-
-        if (!isValidEmail(email)) {
-            emailErrorTextView.setText("Please enter a valid email");
-            emailErrorTextView.setVisibility(View.VISIBLE);
-            isValid = false;
-        } else {
-            emailErrorTextView.setVisibility(View.GONE);
-        }
-
-        if (!isAdult(birthDate)) {
-            birthDateErrorTextView.setText("You must be at least 18 years old to participate");
-            birthDateErrorTextView.setVisibility(View.VISIBLE);
-            isValid = false;
-        } else {
-            birthDateErrorTextView.setVisibility(View.GONE);
-        }
-
-        if (!isValid) {
+        if (!isValid(name, surname, email, birthDate)) {
             return;
         }
 
@@ -119,6 +93,43 @@ public class RaffleInscriptionFragment extends Fragment {
                 });
     }
 
+    private boolean isValid(String name, String surname, String email, String birthDate) {
+        Boolean isValid = true;
+
+        if (!isValidName(name)) {
+            nameErrorTextView.setText("Please enter a valid name");
+            nameErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            nameErrorTextView.setVisibility(View.GONE);
+        }
+
+        if(!isValidName(surname)){
+            surnameErrorTextView.setText("Please enter a valid surname");
+            surnameErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            surnameErrorTextView.setVisibility(View.GONE);
+        }
+
+        if (!isValidEmail(email)) {
+            emailErrorTextView.setText("Please enter a valid email");
+            emailErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            emailErrorTextView.setVisibility(View.GONE);
+        }
+
+        if (!isAdult(birthDate)) {
+            birthDateErrorTextView.setText("You must be at least 18 years old to participate");
+            birthDateErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            birthDateErrorTextView.setVisibility(View.GONE);
+        }
+        return isValid;
+    }
+
     private boolean isValidName(String name) {
         return Pattern.matches("^[a-zA-Z\\s]+$", name);
     }
@@ -139,4 +150,6 @@ public class RaffleInscriptionFragment extends Fragment {
             return false;
         }
     }
+
+
 }
