@@ -76,17 +76,25 @@ public class RaffleInscriptionFragment extends Fragment {
             return;
         }
 
-        Map<String, Object> player = new HashMap<>();
-        player.put("name", name);
-        player.put("surname", surname);
-        player.put("email", email);
-        player.put("score", recordScore);
-
-        // Add a new document with a generated ID
         db.collection("players")
-                .add(player)
-                .addOnSuccessListener(documentReference -> Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(getContext(), "Error adding document", Toast.LENGTH_SHORT).show());
+            .whereEqualTo("email", email)
+            .get()
+            .addOnCompleteListener(task -> {
+                if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                    Toast.makeText(getContext(), "Email is already registered", Toast.LENGTH_SHORT).show();
+                } else {
+                    Map<String, Object> player = new HashMap<>();
+                    player.put("name", name);
+                    player.put("surname", surname);
+                    player.put("email", email);
+                    player.put("score", recordScore);
+
+                    db.collection("players")
+                        .add(player)
+                        .addOnSuccessListener(documentReference -> Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(getContext(), "Error adding document", Toast.LENGTH_SHORT).show());
+                }
+            });
     }
 
     private boolean isValidName(String name) {
