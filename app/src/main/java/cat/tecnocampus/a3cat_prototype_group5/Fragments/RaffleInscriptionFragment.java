@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,7 @@ import cat.tecnocampus.a3cat_prototype_group5.R;
 public class RaffleInscriptionFragment extends Fragment {
 
     private EditText nameEditText, emailEditText, surnameEditText, birthDateEditText;
+    private TextView nameErrorTextView, surnameErrorTextView, emailErrorTextView, birthDateErrorTextView;
     private int recordScore;
     private FirebaseFirestore db;
 
@@ -41,6 +43,10 @@ public class RaffleInscriptionFragment extends Fragment {
         surnameEditText = view.findViewById(R.id.et_surname);
         emailEditText = view.findViewById(R.id.et_email);
         birthDateEditText = view.findViewById(R.id.et_birth_date);
+        nameErrorTextView = view.findViewById(R.id.tv_name_error);
+        surnameErrorTextView = view.findViewById(R.id.tv_surname_error);
+        emailErrorTextView = view.findViewById(R.id.tv_email_error);
+        birthDateErrorTextView = view.findViewById(R.id.tv_birth_date_error);
         Button inscriptionButton = view.findViewById(R.id.btn_confirm_participation);
 
         Bundle bundle = getArguments();
@@ -61,40 +67,56 @@ public class RaffleInscriptionFragment extends Fragment {
         String email = emailEditText.getText().toString();
         String birthDate = birthDateEditText.getText().toString();
 
+        boolean isValid = true;
+
         if (!isValidName(name)) {
-            Toast.makeText(getContext(), "Please enter a valid name", Toast.LENGTH_SHORT).show();
-            return;
+            nameErrorTextView.setText("Please enter a valid name");
+            nameErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            nameErrorTextView.setVisibility(View.GONE);
         }
 
         if (!isValidEmail(email)) {
-            Toast.makeText(getContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
-            return;
+            emailErrorTextView.setText("Please enter a valid email");
+            emailErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            emailErrorTextView.setVisibility(View.GONE);
         }
 
         if (!isAdult(birthDate)) {
-            Toast.makeText(getContext(), "You must be at least 18 years old to participate", Toast.LENGTH_SHORT).show();
+            birthDateErrorTextView.setText("You must be at least 18 years old to participate");
+            birthDateErrorTextView.setVisibility(View.VISIBLE);
+            isValid = false;
+        } else {
+            birthDateErrorTextView.setVisibility(View.GONE);
+        }
+
+        if (!isValid) {
             return;
         }
 
         db.collection("players")
-            .whereEqualTo("email", email)
-            .get()
-            .addOnCompleteListener(task -> {
-                if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                    Toast.makeText(getContext(), "Email is already registered", Toast.LENGTH_SHORT).show();
-                } else {
-                    Map<String, Object> player = new HashMap<>();
-                    player.put("name", name);
-                    player.put("surname", surname);
-                    player.put("email", email);
-                    player.put("score", recordScore);
+                .whereEqualTo("email", email)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && !task.getResult().isEmpty()) {
+                        emailErrorTextView.setText("Email is already registered");
+                        emailErrorTextView.setVisibility(View.VISIBLE);
+                    } else {
+                        Map<String, Object> player = new HashMap<>();
+                        player.put("name", name);
+                        player.put("surname", surname);
+                        player.put("email", email);
+                        player.put("score", recordScore);
 
-                    db.collection("players")
-                        .add(player)
-                        .addOnSuccessListener(documentReference -> Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show())
-                        .addOnFailureListener(e -> Toast.makeText(getContext(), "Error adding document", Toast.LENGTH_SHORT).show());
-                }
-            });
+                        db.collection("players")
+                                .add(player)
+                                .addOnSuccessListener(documentReference -> Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show())
+                                .addOnFailureListener(e -> Toast.makeText(getContext(), "Error adding document", Toast.LENGTH_SHORT).show());
+                    }
+                });
     }
 
     private boolean isValidName(String name) {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background_image"
     tools:context=".Fragments.RaffleConfirmationFragment">
 
@@ -82,6 +82,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
 
+    <TextView
+        android:id="@+id/tv_name_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp" />
+
     <EditText
         android:id="@+id/et_surname"
         android:layout_width="0dp"
@@ -92,7 +103,18 @@
         android:textColor="@android:color/white"
         android:textColorHint="@color/gray_light"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/et_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tv_surname_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/et_surname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
@@ -107,7 +129,18 @@
         android:textColor="@android:color/white"
         android:textColorHint="@color/gray_light"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/et_surname"
+        app:layout_constraintTop_toBottomOf="@id/tv_surname_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tv_email_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/et_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
@@ -122,7 +155,18 @@
         android:textColor="@android:color/white"
         android:textColorHint="@color/gray_light"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/et_email"
+        app:layout_constraintTop_toBottomOf="@id/tv_email_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp" />
+
+    <TextView
+        android:id="@+id/tv_birth_date_error"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/et_birth_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
@@ -131,11 +175,11 @@
         android:id="@+id/cb_promotions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text= "@string/promotion_tb"
+        android:text="@string/promotion_tb"
         android:textColor="@android:color/black"
         android:layout_marginTop="16dp"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/et_birth_date"
+        app:layout_constraintTop_toBottomOf="@id/tv_birth_date_error"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="16dp" />
