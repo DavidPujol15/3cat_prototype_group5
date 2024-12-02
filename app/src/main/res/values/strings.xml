@@ -23,4 +23,9 @@
     <string name="record_score">Rècord:</string>
     <string name="string_new_record_message">Felicitats!! \nHas superat la teva millor marca!!</string>
     <string name="string_game_over_message">Bon Intent!!\\n Proba sort una altre vegada!</string>
+    <string name="sharing_message">Ja formes part del sorteig!\n  Comparteix la teva puntuació amb els teus amics a les xarxes socials i multiplica les teves opcions de guanyar!\n\n👉 #JaEsticDins</string>
+    <string name="instagram_icon">Instagram</string>
+    <string name="whatsapp_icon">Whatsapp</string>
+    <string name="tiktok_icon">Tiktok</string>
+    <string name="x_icon">X</string>
 </resources>
