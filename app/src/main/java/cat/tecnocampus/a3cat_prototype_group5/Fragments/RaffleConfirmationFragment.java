@@ -1,5 +1,6 @@
 package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +14,14 @@ import androidx.fragment.app.Fragment;
 import cat.tecnocampus.a3cat_prototype_group5.R;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.widget.Toast;
 
 public class RaffleConfirmationFragment extends Fragment {
 
     private LinearLayout confirmationBuddle, sharingBuddle;
 
-    private Button btnBack;
-    private ImageButton btnShare,btnTiktok,btnWhatsapp,btnInstagram,btnX;
+    private Button btnReturntoMain;
+    private ImageButton btnShare,btnWhatsapp,btnX;
 
     @Nullable
     @Override
@@ -35,17 +35,21 @@ public class RaffleConfirmationFragment extends Fragment {
 
         confirmationBuddle = view.findViewById(R.id.confirmation_buddle);
         sharingBuddle = view.findViewById(R.id.sharing_buddle);
-        btnBack = view.findViewById(R.id.button_back);
+        btnReturntoMain = view.findViewById(R.id.button_returntomain);
         btnShare = view.findViewById(R.id.button_share);
-        btnTiktok = view.findViewById(R.id.button_tiktok);
         btnWhatsapp = view.findViewById(R.id.button_whatsapp);
-        btnInstagram = view.findViewById(R.id.button_instagram);
         btnX = view.findViewById(R.id.button_x);
 
 
         btnShare.setOnClickListener(v -> handleShareClick());
         btnWhatsapp.setOnClickListener(v -> handleWhatsappClick());
         btnX.setOnClickListener(v -> handleXClick());
+        btnReturntoMain.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new MainMenuFragment())
+                .addToBackStack(null)
+                .commit();
+        });
     }
 
     private void handleShareClick() {
@@ -53,11 +57,8 @@ public class RaffleConfirmationFragment extends Fragment {
         sharingBuddle.setVisibility(View.VISIBLE);
     }
 
-    private void handleTiktokClick() {
-    }
-
     private void handleWhatsappClick() {
-        String message = String.valueOf(R.string.social_media_message) + " " + "\n EVA: https://www.3cat.cat/3cat/eva/";
+        String message = R.string.social_media_message + " " + "\n EVA: https://www.3cat.cat/3cat/eva/";
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, message);
@@ -71,15 +72,13 @@ public class RaffleConfirmationFragment extends Fragment {
         }
     }
 
-    private void handleInstagramClick() {
-    }
-
     private void handleXClick() {
-        String message = getString(R.string.social_media_message) + " " + "\n EVA: https://www.3cat.cat/3cat/eva/";
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, message);
-        sendIntent.setType("text/plain");
+        String message = getString(R.string.social_media_message) + " " +
+                         "\n EVA: https://www.3cat.cat/3cat/eva/" +
+                         "\n\n#EVAxFCB #NouCampNou #SorteigFCB #JaSocDins";
+        String url = "https://twitter.com/intent/tweet?text=" + Uri.encode(message);
+
+        Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         sendIntent.setPackage("com.twitter.android");
 
         try {
