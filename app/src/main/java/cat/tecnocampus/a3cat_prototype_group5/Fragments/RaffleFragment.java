@@ -44,12 +44,7 @@ public class RaffleFragment extends Fragment {
                 .commit();
         });
 
-        backButton.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new MainMenuFragment())
-                .addToBackStack(null)
-                .commit();
-        });
+        backButton.setOnClickListener(v -> getActivity().onBackPressed());
 
         players = new ArrayList<>();
         adapter = new HighScoresAdapter(players);
