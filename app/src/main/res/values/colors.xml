@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="EVA_primary">#DE2149</color>
     <color name="EVA_primary_variant">#D64593</color>
+    <color name="gray_light">#8E8E8E</color>
 </resources>
