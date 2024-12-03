@@ -79,7 +79,7 @@ public class RaffleInscriptionFragment extends Fragment {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
-                        emailErrorTextView.setText("Email is already registered");
+                        emailErrorTextView.setText("Correu ja registrat prèviament");
                         emailErrorTextView.setVisibility(View.VISIBLE);
                     } else {
                         Map<String, Object> player = new HashMap<>();
@@ -92,7 +92,7 @@ public class RaffleInscriptionFragment extends Fragment {
                                 .add(player)
 
                                 .addOnSuccessListener(documentReference ->{
-                                    Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Inscriptió feta correctament", Toast.LENGTH_SHORT).show();
                                     getParentFragmentManager().beginTransaction()
                                             .replace(R.id.fragment_container, new RaffleConfirmationFragment())
                                             .addToBackStack(null)
@@ -107,7 +107,7 @@ public class RaffleInscriptionFragment extends Fragment {
         Boolean isValid = true;
 
         if (!isValidName(name)) {
-            nameErrorTextView.setText("Please enter a valid name");
+            nameErrorTextView.setText("Si us plau, introdueix un nom vàlid");
             nameErrorTextView.setVisibility(View.VISIBLE);
             isValid = false;
         } else {
@@ -115,7 +115,7 @@ public class RaffleInscriptionFragment extends Fragment {
         }
 
         if(!isValidName(surname)){
-            surnameErrorTextView.setText("Please enter a valid surname");
+            surnameErrorTextView.setText("Si us plau introdueix un cognom vàlid");
             surnameErrorTextView.setVisibility(View.VISIBLE);
             isValid = false;
         } else {
@@ -123,7 +123,7 @@ public class RaffleInscriptionFragment extends Fragment {
         }
 
         if (!isValidEmail(email)) {
-            emailErrorTextView.setText("Please enter a valid email");
+            emailErrorTextView.setText("Si us plau introdueix un email vàlid");
             emailErrorTextView.setVisibility(View.VISIBLE);
             isValid = false;
         } else {
@@ -131,7 +131,7 @@ public class RaffleInscriptionFragment extends Fragment {
         }
 
         if (!isAdult(birthDate)) {
-            birthDateErrorTextView.setText("You must be at least 18 years old to participate");
+            birthDateErrorTextView.setText("Has de tenir mínim 18 anys per participar");
             birthDateErrorTextView.setVisibility(View.VISIBLE);
             isValid = false;
         } else {

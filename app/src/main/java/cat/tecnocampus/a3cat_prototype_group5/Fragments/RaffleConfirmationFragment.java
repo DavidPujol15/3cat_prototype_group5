@@ -33,9 +33,9 @@ public class RaffleConfirmationFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        confirmationBuddle = view.findViewById(R.id.confirmation_buddle);
-        sharingBuddle = view.findViewById(R.id.sharing_buddle);
-        btnReturntoMain = view.findViewById(R.id.button_returntomain);
+        confirmationBuddle = view.findViewById(R.id.confirmation_bubble);
+        sharingBuddle = view.findViewById(R.id.sharing_bubble);
+        btnReturntoMain = view.findViewById(R.id.button_return_to_main);
         btnShare = view.findViewById(R.id.button_share);
         btnWhatsapp = view.findViewById(R.id.button_whatsapp);
         btnX = view.findViewById(R.id.button_x);
@@ -58,7 +58,7 @@ public class RaffleConfirmationFragment extends Fragment {
     }
 
     private void handleWhatsappClick() {
-        String message = R.string.social_media_message + " " + "\n EVA: https://www.3cat.cat/3cat/eva/";
+        String message = getString(R.string.social_media_message) + " " + "\n EVA: https://www.3cat.cat/3cat/eva/";
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, message);

@@ -7,9 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.utils.widget.MotionTelltales;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,11 +30,14 @@ public class RaffleFragment extends Fragment {
     private FirebaseFirestore db;
     private HighScoresAdapter adapter;
     private List<Player> players;
+    private int recordScore;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_raffle, container, false);
+
+        TextView tv_inscription_error = view.findViewById(R.id.tv_inscription_error);
 
         RecyclerView recyclerView = view.findViewById(R.id.high_scores_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -40,13 +45,17 @@ public class RaffleFragment extends Fragment {
         Button raffleButton = view.findViewById(R.id.btn_inscription);
         ImageButton backButton = view.findViewById(R.id.btn_back);
 
+        if (getArguments() != null) {
+            recordScore = getArguments().getInt("record_score", 0);
+        }
+
         raffleButton.setOnClickListener(v -> {
-            if (getArguments() != null || getArguments().getInt("score") == 0) {
-                Toast.makeText(getContext(), "No pots inscriure't si la teva puntuació és 0", Toast.LENGTH_SHORT).show();
+            if (recordScore == 0) {
+                tv_inscription_error.setText("No pots inscriure't sense haver jugat");
+                tv_inscription_error.setVisibility(View.VISIBLE);
             } else {
                 RaffleInscriptionFragment raffleInscriptionFragment = new RaffleInscriptionFragment();
                 Bundle bundle = new Bundle();
-                int recordScore = 0;
                 bundle.putInt("record_score", recordScore);
                 raffleInscriptionFragment.setArguments(bundle);
                 getParentFragmentManager().beginTransaction()

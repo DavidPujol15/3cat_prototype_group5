@@ -61,6 +61,7 @@
         android:contentDescription="@string/game_image_description"
         android:scaleType="centerCrop"
         android:src="@drawable/game_image_placeholder"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,54 +69,6 @@
         app:layout_constraintVertical_bias="0.591" />
 
 
-    <TextView
-        android:id="@+id/current_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="@string/score"
-        android:textColor="@color/EVA_primary"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/game_canvas"
-        app:layout_constraintStart_toStartOf="@id/game_canvas" />
-
-    <TextView
-        android:id="@+id/current_score_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="0"
-        android:textColor="@color/EVA_primary"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/game_canvas"
-        app:layout_constraintStart_toEndOf="@id/current_score"/>
-
-    <TextView
-        android:id="@+id/current_record"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/record_score"
-        android:textColor="@color/EVA_primary"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/game_canvas"
-        app:layout_constraintEnd_toEndOf="@id/current_record_number" />
-
-    <TextView
-        android:id="@+id/current_record_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="0"
-        android:textColor="@color/EVA_primary"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/game_canvas"
-        app:layout_constraintEnd_toEndOf="@id/game_canvas" />
 
     <LinearLayout
         android:id="@+id/end_game_bubble"
@@ -135,7 +88,6 @@
             android:id="@+id/end_game_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Game Over!"
             android:textSize="18sp"
             android:textColor="@color/EVA_primary_variant"
             android:textStyle="bold"
@@ -148,14 +100,14 @@
             android:layout_height="wrap_content"
             android:text="Score: 0"
             android:textSize="16sp"
-            android:textColor="@color/EVA_primary"
+            android:textColor="@color/EVA_primary_variant"
             android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/btn_play_again"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:text="Play Again"
+            android:text="@string/play_again"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
             android:layout_marginBottom="8dp" />
@@ -164,7 +116,7 @@
             android:id="@+id/btn_enter_raffle"
             android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:text="Enter Raffle"
+            android:text="@string/raffle_inscription_button"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white" />
     </LinearLayout>
