@@ -1,10 +1,13 @@
 package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -20,7 +23,7 @@ public class GameMenuFragment extends Fragment {
 
         Button playButton = view.findViewById(R.id.btn_play);
         Button raffleButton = view.findViewById(R.id.btn_enter_raffle);
-        Button backButton = view.findViewById(R.id.btn_back);
+        ImageButton backButton = view.findViewById(R.id.btn_back);
 
         playButton.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
