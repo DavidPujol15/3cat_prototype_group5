@@ -1,6 +1,7 @@
 package cat.tecnocampus.a3cat_prototype_group5.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +41,19 @@ public class RaffleFragment extends Fragment {
         ImageButton backButton = view.findViewById(R.id.btn_back);
 
         raffleButton.setOnClickListener(v -> {
-            getParentFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new RaffleInscriptionFragment())
-                .addToBackStack(null)
-                .commit();
+            if (getArguments() != null || getArguments().getInt("score") == 0) {
+                Toast.makeText(getContext(), "No pots inscriure't si la teva puntuació és 0", Toast.LENGTH_SHORT).show();
+            } else {
+                RaffleInscriptionFragment raffleInscriptionFragment = new RaffleInscriptionFragment();
+                Bundle bundle = new Bundle();
+                int recordScore = 0;
+                bundle.putInt("record_score", recordScore);
+                raffleInscriptionFragment.setArguments(bundle);
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, raffleInscriptionFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
         });
 
         backButton.setOnClickListener(v -> getActivity().onBackPressed());
@@ -60,22 +71,44 @@ public class RaffleFragment extends Fragment {
 
     private void loadHighScores() {
         db.collection("players")
-            .orderBy("score", com.google.firebase.firestore.Query.Direction.DESCENDING)
-            .limit(5)
-            .get()
-            .addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    players.clear();
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        String name = document.getString("name");
-                        String surname = document.getString("surname");
-                        int score = document.getLong("score").intValue();
-                        players.add(new Player(name,score,surname));
+                .orderBy("score", Query.Direction.DESCENDING)
+                .limit(5)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.d("Firestore", "Dades obtingudes correctament");
+                        players.clear();
+
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            try {
+                                // Validar campos del documento
+                                String name = document.getString("name");
+                                String surname = document.getString("surname");
+                                Long scoreLong = document.getLong("score");
+
+                                // Si alguno de los campos es nulo, manejar el caso
+                                if (name == null || surname == null || scoreLong == null) {
+                                    Log.e("Firestore", "Falten camps al document: " + document.getId());
+                                    continue;
+                                }
+
+                                int score = scoreLong.intValue();
+
+                                // Crear el objeto Player y añadirlo a la lista
+                                players.add(new Player(name, score, surname));
+                            } catch (Exception e) {
+                                Log.e("Firestore", "Error al processar el document: " + document.getId(), e);
+                            }
+                        }
+
+                        // Notificar al adaptador que los datos han cambiado
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        // Log de error si la consulta falla
+                        Log.e("Firestore", "Error al obtenir dades", task.getException());
+                        Toast.makeText(getContext(), "Error al carregar dades: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
-                    adapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                });
     }
+
 }
