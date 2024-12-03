@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class RaffleInscriptionFragment extends Fragment {
     private TextView nameErrorTextView, surnameErrorTextView, emailErrorTextView, birthDateErrorTextView;
     private int recordScore;
     private FirebaseFirestore db;
+    private ImageButton btnBack;
 
 
     @Nullable
@@ -47,6 +49,7 @@ public class RaffleInscriptionFragment extends Fragment {
         emailErrorTextView = view.findViewById(R.id.tv_email_error);
         birthDateErrorTextView = view.findViewById(R.id.tv_birth_date_error);
         Button inscriptionButton = view.findViewById(R.id.btn_confirm_participation);
+        btnBack = view.findViewById(R.id.btn_back);
 
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -56,7 +59,7 @@ public class RaffleInscriptionFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
 
         inscriptionButton.setOnClickListener(v -> saveInscription());
-
+        btnBack.setOnClickListener(v -> getActivity().onBackPressed());
         return view;
     }
 
@@ -87,7 +90,14 @@ public class RaffleInscriptionFragment extends Fragment {
 
                         db.collection("players")
                                 .add(player)
-                                .addOnSuccessListener(documentReference -> Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show())
+
+                                .addOnSuccessListener(documentReference ->{
+                                    Toast.makeText(getContext(), "Inscription successful", Toast.LENGTH_SHORT).show();
+                                    getParentFragmentManager().beginTransaction()
+                                            .replace(R.id.fragment_container, new RaffleConfirmationFragment())
+                                            .addToBackStack(null)
+                                            .commit();
+                                })
                                 .addOnFailureListener(e -> Toast.makeText(getContext(), "Error adding document", Toast.LENGTH_SHORT).show());
                     }
                 });

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,7 +36,7 @@ public class RaffleFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         Button raffleButton = view.findViewById(R.id.btn_inscription);
-        Button backButton = view.findViewById(R.id.btn_back);
+        ImageButton backButton = view.findViewById(R.id.btn_back);
 
         raffleButton.setOnClickListener(v -> {
             getParentFragmentManager().beginTransaction()
@@ -67,8 +68,9 @@ public class RaffleFragment extends Fragment {
                     players.clear();
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String name = document.getString("name");
+                        String surname = document.getString("surname");
                         int score = document.getLong("score").intValue();
-                        players.add(new Player(name, score));
+                        players.add(new Player(name,score,surname));
                     }
                     adapter.notifyDataSetChanged();
                 } else {

@@ -69,22 +69,24 @@ public class GameFragment extends Fragment {
             endGameMessage.setText(R.string.string_game_over_message);
         }
 
-        endGameScore.setText(R.string.score + newScore);
+        endGameScore.setText(getString(R.string.score) + String.valueOf(newScore));
         endGameBubble.setVisibility(View.VISIBLE);
+        gameCanvas.setEnabled(false);
     }
 
     private void resetGame() {
         endGameBubble.setVisibility(View.GONE);
         currentScore.setText("0");
+        gameCanvas.setEnabled(true);
     }
 
     private void goToRaffleScreen() {
-        RaffleInscriptionFragment raffleInscriptionFragment = new RaffleInscriptionFragment();
+        RaffleFragment raffleFragment = new RaffleFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("record_score", recordScore);
-        raffleInscriptionFragment.setArguments(bundle);
+        raffleFragment.setArguments(bundle);
         getParentFragmentManager().beginTransaction()
-            .replace(R.id.fragment_container, raffleInscriptionFragment)
+            .replace(R.id.fragment_container, raffleFragment)
             .addToBackStack(null)
             .commit();
     }

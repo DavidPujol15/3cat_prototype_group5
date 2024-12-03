@@ -18,7 +18,7 @@
     <string name="play">Jugar</string>
     <string name="start">inici</string>
     <string name="game_image_description">Click per jugar</string>
-    <string name="score">Puntuació Actual:</string>
+    <string name="score">Puntuació Actual: </string>
     <string name="record_score">Rècord:</string>
     <string name="string_new_record_message">Felicitats!!\nHas superat la teva millor marca!!</string>
     <string name="string_game_over_message">Bon Intent!!\nProva sort una altra vegada!</string>
@@ -28,4 +28,8 @@
     <string name="tiktok_icon">Tiktok</string>
     <string name="x_icon">X</string>
     <string name="social_media_message">Participa al sorteig EVA x FCB!\nGuanya entrades dobles per viure el gran esdeveniment inaugural al Nou Camp Nou! \nNomés cal que participis i mostris la teva puntuació.\n\nParticipa aquí: https://play.google.com/store/apps/details?id=cat.tv3.eng.tresac \nMolta sort!</string>
+    <string name="name">Nom</string>
+    <string name="surname">Cognoms</string>
+    <string name="email">Correu electrònic</string>
+    <string name="birth_date">Data de naixement</string>
 </resources>

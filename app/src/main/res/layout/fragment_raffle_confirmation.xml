@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     tools:context=".Fragments.RaffleConfirmationFragment">
 
 
@@ -58,95 +59,91 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/confirmation_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/thank_you_message"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/button_returntomain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/EVA_primary_variant"
-            android:padding="12dp"
-            android:text="@string/start"
-            android:textColor="@color/white"
-            android:layout_marginEnd="8dp" />
-
-        <ImageButton
-            android:id="@+id/button_share"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_share"
-            android:contentDescription="@string/share_icon" />
-    </LinearLayout>
-</LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/sharing_buddle"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:orientation="vertical"
-        android:background="@drawable/rounded_white_background"
-        android:padding="24dp"
-        android:visibility="visible"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/sharing_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sharing_message"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
-
+       <TextView
+           android:id="@+id/confirmation_message"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/thank_you_message"
+           android:textColor="@color/black"
+           android:textSize="18sp"
+           android:textStyle="bold"
+           android:gravity="center"
+           android:layout_marginBottom="16dp" />
 
        <LinearLayout
-           android:id="@+id/media_buttons"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:orientation="horizontal"
            android:gravity="center">
 
-           <ImageButton
-               android:id="@+id/button_whatsapp"
-               android:layout_width="48dp"
-               android:layout_height="48dp"
-               android:background="@drawable/ic_whatsapp"
-               android:contentDescription="@string/whatsapp_icon"
-               android:layout_marginStart="8dp" />
+           <Button
+               android:id="@+id/button_returntomain"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:backgroundTint="@color/EVA_primary_variant"
+               android:padding="12dp"
+               android:text="@string/start"
+               android:textColor="@color/white"
+               android:layout_marginEnd="8dp" />
 
-
            <ImageButton
-               android:id="@+id/button_x"
-               android:layout_width="48dp"
-               android:layout_height="48dp"
-               android:background="@drawable/ic_x"
-               android:contentDescription="@string/x_icon"
-               android:layout_marginStart="8dp" />
+               android:id="@+id/button_share"
+               android:layout_width="32dp"
+               android:layout_height="32dp"
+               android:background="@drawable/ic_share"
+               android:contentDescription="@string/share_icon" />
        </LinearLayout>
-    </LinearLayout>
 
+       <LinearLayout
+           android:id="@+id/sharing_buddle"
+           android:layout_width="300dp"
+           android:layout_height="300dp"
+           android:background="@drawable/rounded_white_background"
+           android:gravity="center"
+           android:orientation="vertical"
+           android:padding="24dp"
+           android:visibility="visible">
+
+
+           <LinearLayout
+               android:id="@+id/media_buttons"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:visibility="gone">
+
+               <ImageButton
+                   android:id="@+id/button_whatsapp"
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:layout_marginStart="8dp"
+                   android:background="@drawable/ic_whatsapp"
+                   android:contentDescription="@string/whatsapp_icon" />
+
+
+               <ImageButton
+                   android:id="@+id/button_x"
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:layout_marginStart="8dp"
+                   android:background="@drawable/ic_x"
+                   android:contentDescription="@string/x_icon" />
+           </LinearLayout>
+       </LinearLayout>
+
+       <TextView
+           android:id="@+id/sharing_message"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="16dp"
+           android:gravity="center"
+           android:text="@string/sharing_message"
+           android:textColor="@color/black"
+           android:textSize="18sp"
+           android:textStyle="bold" />
+   </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
