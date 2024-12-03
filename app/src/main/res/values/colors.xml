@@ -10,4 +10,7 @@
     <color name="EVA_primary">#DE2149</color>
     <color name="EVA_primary_variant">#D64593</color>
     <color name="gray_light">#8E8E8E</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#FF0000</color>
 </resources>
